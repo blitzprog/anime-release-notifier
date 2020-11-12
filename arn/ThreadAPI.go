@@ -3,12 +3,11 @@ package arn
 import (
 	"errors"
 	"fmt"
-	"reflect"
-
 	"github.com/aerogo/aero"
 	"github.com/aerogo/api"
 	"github.com/aerogo/markdown"
 	"github.com/animenotifier/notify.moe/arn/autocorrect"
+	"reflect"
 )
 
 // Force interface implementations
@@ -125,6 +124,29 @@ func (thread *Thread) Create(ctx aero.Context) error {
 
 // Edit creates an edit log entry.
 func (thread *Thread) Edit(ctx aero.Context, key string, value reflect.Value, newValue reflect.Value) (consumed bool, err error) {
+
+	switch key {
+	case "Tags":
+		newTags := newValue.Interface().([]string)
+
+		if len(newTags) < 1 {
+			return true, errors.New("Need to specify at least one tag")
+		}
+
+	case "Title":
+		newTitle := newValue.String()
+
+		if len(newTitle) < 10 {
+			return true, errors.New("Title too short: Should be at least 10 characters")
+		}
+	case "Text":
+		newText := newValue.String()
+
+		if len(newText) < 10 {
+			return true, errors.New("Text too short: Should be at least 10 characters")
+		}
+	}
+
 	return edit(thread, ctx, key, value, newValue)
 }
 

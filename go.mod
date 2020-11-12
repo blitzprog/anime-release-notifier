@@ -58,7 +58,7 @@ require (
 	github.com/mssola/user_agent v0.5.2
 	github.com/pariz/gountries v0.0.0-20200430155801-1c6a393df9c7
 	github.com/pkg/errors v0.9.1 // indirect
-	github.com/shirou/gopsutil v2.20.9+incompatible
+	github.com/shirou/gopsutil v3.20.10+incompatible
 	github.com/smartystreets/assertions v1.2.0 // indirect
 	github.com/smartystreets/goconvey v1.6.4 // indirect
 	github.com/teris-io/shortid v0.0.0-20171029131806-771a37caa5cf // indirect
