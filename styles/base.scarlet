@@ -41,3 +41,14 @@ rt
 
 .spacer
 	flex 1
+@media (hover : hover) and (pointer : fine)
+	body
+		scrollbar-color text-color bg-color
+	::-webkit-scrollbar
+		width 8px
+	::-webkit-scrollbar-track
+		background var(--bg-color)
+		border-radius 20px
+	::-webkit-scrollbar-thumb
+		background var(--text-color)
+		border-radius 20px
