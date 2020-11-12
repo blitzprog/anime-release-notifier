@@ -18,7 +18,7 @@ component AnimeMainColumn(anime *arn.Anime, listItem *arn.AnimeListItem, tracks 
 			h2.anime-alternative-title.mountable(data-mountable-type="header")
 				Japanese(anime.Title.Japanese)
 
-			p.anime-summary.mountable(data-mountable-type="header")= anime.Summary
+			p.anime-summary.mountable(data-mountable-type="header")!= anime.HTML()
 
 			.anime-summary-footer-container
 				footer.anime-summary-footer
