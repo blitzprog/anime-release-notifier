@@ -18,6 +18,8 @@ func init() {
 		{"thetvdb/anime", "thetvdb/anime"},
 		{"trakt/anime", "trakt/anime"},
 		{"trakt/season", "trakt/season"},
+		{"tmdb/tv", "tmdb/tv"},
+		{"tmdb/movie", "tmdb/movie"},
 	}
 }
 
@@ -48,6 +50,10 @@ func (mapping *Mapping) Name() string {
 		return "Trakt"
 	case "trakt/season":
 		return "Trakt"
+	case "tmdb/tv":
+		return "TMDb"
+	case "tmdb/movie":
+		return "TMDb"
 	default:
 		return mapping.Service
 	}
@@ -78,6 +84,10 @@ func (mapping *Mapping) Link() string {
 		return "https://trakt.tv/shows/" + mapping.ServiceID
 	case "trakt/season":
 		return "https://trakt.tv/seasons/" + mapping.ServiceID
+	case "tmdb/tv":
+		return "https://www.themoviedb.org/tv/" + mapping.ServiceID
+	case "tmdb/movie":
+		return "https://www.themoviedb.org/movie/" + mapping.ServiceID
 	default:
 		return ""
 	}
